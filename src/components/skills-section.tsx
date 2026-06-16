@@ -6,10 +6,12 @@ import HeaderSection from "./shared/header-section"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useI18n } from "@/lib/i18n"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const SkillsSection = () => {
+  const { t } = useI18n()
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useGSAP(
@@ -39,14 +41,14 @@ const SkillsSection = () => {
 
   const skills = [
     {
-      label: "LANGUAGES",
+      label: t.skills.groups[0].label,
       icon: <Code />,
       tone: "bg-sky-blue",
       cardTone: "bg-blue-light",
       items: ["JavaScript", "TypeScript", "Python", "HTML5/CSS3", "GRAPHQL"],
     },
     {
-      label: "FRAMEWORKS & LIBRARIES",
+      label: t.skills.groups[1].label,
       icon: <Layers2 />,
       tone: "bg-soft-green",
       cardTone: "bg-green-light",
@@ -63,7 +65,7 @@ const SkillsSection = () => {
       ],
     },
     {
-      label: "TOOLS & PLATFORMS",
+      label: t.skills.groups[2].label,
       icon: <Wrench />,
       tone: "bg-bold-yellow",
       cardTone: "bg-yellow-light",
@@ -76,8 +78,8 @@ const SkillsSection = () => {
       className="relative w-full overflow-hidden bg-orange-light px-4 py-20 sm:px-8"
     >
       <HeaderSection
-        title="SKILL STACK"
-        subtitle="Tools and Technologies I Work With"
+        title={t.skills.title}
+        subtitle={t.skills.subtitle}
         className="ml-0 mr-auto text-left"
       />
 

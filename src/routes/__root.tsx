@@ -5,6 +5,7 @@ import Header from "@/components/shared/header"
 import Footer from "@/components/shared/footer"
 import { injectSpeedInsights } from '@vercel/speed-insights';
 import { inject } from '@vercel/analytics';
+import { LocaleHtmlLang } from "@/lib/i18n"
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -19,26 +20,12 @@ export const Route = createRootRoute({
         title: "jackphat.dev",
       },
       {
-        name: "description",
-        content:
-          "Jack Phat's personal portfolio showcasing projects, skills, and career highlights.",
-      },
-      {
         property: "og:title",
         content: "jackphat.dev",
       },
       {
-        property: "og:description",
-        content:
-          "Jack Phat's personal portfolio showcasing projects, skills, and career highlights.",
-      },
-      {
         property: "og:image",
         content: "/projects/1.png",
-      },
-      {
-        property: "og:image:alt",
-        content: "Portfolio preview of Jack Phat",
       },
 			{
         property: "og:url",
@@ -58,17 +45,8 @@ export const Route = createRootRoute({
         content: "jackphat.dev",
       },
       {
-        name: "twitter:description",
-        content:
-          "Jack Phat's personal portfolio website showcasing his skills, projects, and career highlights as a software engineer.",
-      },
-      {
         name: "twitter:image",
         content: "/projects/1.png",
-      },
-      {
-        name: "twitter:image:alt",
-        content: "Portfolio preview of Jack Phat",
       },
     ],
     links: [
@@ -107,6 +85,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <div className="container mx-auto size-full">
             <div className="relative border-4 border-border bg-off-white shadow-shadow">
               <Header />
+              <LocaleHtmlLang />
               {children}
               <Footer />
             </div>

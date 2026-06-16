@@ -1,25 +1,48 @@
 import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
-import { Link, linkOptions, useLocation } from "@tanstack/react-router"
+import { Link, useLocation } from "@tanstack/react-router"
 import gsap from "gsap"
 import { Menu, X } from "lucide-react"
 import { useGSAP } from "@gsap/react"
-
-const MENU_ITEMS = [
-  linkOptions({ to: "/", hash: "", label: "Home" }),
-  linkOptions({ to: "/", hash: "about", label: "About" }),
-  linkOptions({ to: "/", hash: "projects", label: "Projects" }),
-  linkOptions({ to: "/", hash: "contact", label: "Contact" }),
-]
+import { buildLocalePath, type Locale, LOCALES, useI18n } from "@/lib/i18n"
 
 const Header = () => {
   const location = useLocation()
+  const { locale, t } = useI18n()
   const [open, setOpen] = useState(false)
   const menuRef = useRef<HTMLUListElement>(null)
   const headerRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(true)
   const lastScrollY = useRef(0)
+  const localePath = buildLocalePath(locale)
+  const activeHash = location.hash.replace(/^#/, "")
+
+  const getLocaleLink = (nextLocale: Locale) => ({
+    to: buildLocalePath(nextLocale),
+    hash: activeHash,
+  })
+
+  const LanguageSwitcher = ({ className }: { className?: string }) => (
+    <div
+      aria-label={t.header.languageLabel}
+      className={cn("flex border-2 border-border bg-off-white", className)}
+    >
+      {LOCALES.map((item) => (
+        <Link
+          key={item}
+          {...getLocaleLink(item)}
+          onClick={() => setOpen(false)}
+          className={cn(
+            "px-3 py-2 font-manrope text-sm font-black uppercase transition-colors hover:bg-main",
+            item === locale && "bg-main"
+          )}
+        >
+          {item}
+        </Link>
+      ))}
+    </div>
+  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,14 +102,15 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-4">
-              {MENU_ITEMS.map((item) => (
+              {t.header.nav.map((item) => (
                 <li key={item.hash === "" ? "home" : item.hash}>
                   <Link
-                    {...item}
+                    to={localePath}
+                    hash={item.hash}
                     className={cn(
                       "border-2 border-transparent bg-transparent px-4 py-2 uppercase shadow-none transition-all hover:border-border hover:bg-main hover:shadow-hover",
-                      location.pathname === item.to &&
-                        location.hash === item.hash &&
+                      location.pathname === localePath &&
+                        activeHash === item.hash &&
                         "border-border bg-main shadow-shadow"
                     )}
                   >
@@ -98,9 +122,10 @@ const Header = () => {
           </nav>
 
           {/* CTA (desktop) */}
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
+            {/* <LanguageSwitcher /> */}
             <Button className="bg-bold-yellow" variant={"reverse"}>
-              Let's talk
+              {t.header.cta}
             </Button>
           </div>
 
@@ -109,6 +134,7 @@ const Header = () => {
             className="md:hidden"
             variant={"neutral"}
             size={"icon"}
+            aria-label={t.header.menuLabel}
             onClick={() => setOpen((prev) => !prev)}
           >
             {open ? <X /> : <Menu />}
@@ -122,15 +148,16 @@ const Header = () => {
             data-open={open}
             className="flex h-0 flex-col gap-3 px-4 data-[open=false]:opacity-0 data-open:pb-4 data-open:opacity-100"
           >
-            {MENU_ITEMS.map((item) => (
+            {t.header.nav.map((item) => (
               <li key={item.hash}>
                 <Link
-                  {...item}
+                  to={localePath}
+                  hash={item.hash}
                   onClick={() => setOpen(false)}
                   className={cn(
                     "block border-2 border-transparent px-4 py-2 uppercase transition-all hover:border-border hover:bg-main",
-                    location.pathname === item.to &&
-                      location.hash === item.hash &&
+                    location.pathname === localePath &&
+                      activeHash === item.hash &&
                       "border-border bg-main"
                   )}
                 >
@@ -139,8 +166,9 @@ const Header = () => {
               </li>
             ))}
 
+            {/* <LanguageSwitcher className="w-fit" /> */}
             <Button className="w-full bg-bold-yellow" variant={"reverse"}>
-              Let's talk
+              {t.header.cta}
             </Button>
           </ul>
         </div>

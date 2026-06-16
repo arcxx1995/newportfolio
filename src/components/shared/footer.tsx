@@ -3,6 +3,7 @@ import { Button } from "../ui/button"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useI18n } from "@/lib/i18n"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -26,6 +27,7 @@ const MENU_SOCIALS = [
 ]
 
 const Footer = () => {
+  const { t } = useI18n()
   const containerRef = useRef<HTMLElement>(null)
   const innerRef = useRef<HTMLDivElement>(null)
   const [year, setYear] = useState<number | null>(null)
@@ -88,16 +90,16 @@ const Footer = () => {
               className="mb-4 uppercase"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              Scroll to top
+              {t.footer.scrollTop}
             </Button>
             <p
               suppressHydrationWarning
               className="font-space-grotesk leading-tight font-black text-black uppercase"
             >
-              ©{year} NON-CONFORMIST CURATIONS / ALL ERRORS INTENDED
+              ©{year} {t.footer.copyright}
             </p>
             <p className="mt-4 font-manrope text-sm font-bold tracking-wider text-black uppercase opacity-70">
-              Built with love from JackPhat 💗
+              {t.footer.builtWith}
             </p>
           </div>
         </div>

@@ -11,36 +11,55 @@ import Lenis from "lenis"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-export const Route = createFileRoute("/")({ component: App })
+import { dictionaries, resolveLocale, useI18n } from "@/lib/i18n"
+
+export const Route = createFileRoute("/{-$locale}")({
+  component: App,
+  head: ({ params }) => {
+    const locale = resolveLocale(params.locale)
+    const meta = dictionaries[locale].meta
+
+    return {
+      meta: [
+        {
+          name: "description",
+          content: meta.description,
+        },
+        {
+          property: "og:description",
+          content: meta.description,
+        },
+        {
+          property: "og:image:alt",
+          content: meta.imageAlt,
+        },
+        {
+          name: "twitter:description",
+          content: meta.twitterDescription,
+        },
+        {
+          name: "twitter:image:alt",
+          content: meta.imageAlt,
+        },
+      ],
+    }
+  },
+})
 
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
-  const ITEMS = [
-    "Builder",
-    "Analytical",
-    "Scalable",
-    "Efficient",
-    "Innovative",
-    "Reliable",
-    "Adaptable",
-    "Problem-solver",
-  ]
+  const { t } = useI18n()
 
   useGSAP(() => {
-    // Initialize a new Lenis instance for smooth scrolling
     const lenis = new Lenis()
 
-    // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
     lenis.on("scroll", ScrollTrigger.update)
 
-    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-    // This ensures Lenis's smooth scroll animation updates on each GSAP tick
     gsap.ticker.add((time) => {
-      lenis.raf(time * 1000) // Convert time from seconds to milliseconds
+      lenis.raf(time * 1000)
     })
 
-    // Disable lag smoothing in GSAP to prevent any delay in scroll animations
     gsap.ticker.lagSmoothing(0)
   })
 
@@ -50,7 +69,7 @@ function App() {
         <AboutSection />
       </div>
       <div className="flex-1">
-        <Marquee items={ITEMS} />
+        <Marquee items={[...t.marquee]} />
       </div>
       <div id="skills">
         <SkillsSection />

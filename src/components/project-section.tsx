@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef } from "react"
+import { useI18n } from "@/lib/i18n"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -11,15 +12,8 @@ const projects = [
   {
     id: 1,
     title: "Portfolio",
-    role: "Developer",
     date: "Jan 2025 - Feb 2025",
     tags: ["AstroJS", "TailwindCSS", "Markdown"],
-    points: [
-      "Designed and developed a personal portfolio website using ReactJS and TailwindCSS, showcasing projects and skills with a clean and modern design.",
-      "Using neu-brutalism design principles to create a visually appealing and unique user interface.",
-      "Implemented responsive design to ensure optimal viewing experience across various devices and screen sizes.",
-      "Optimized website performance by implementing lazy loading, code splitting, and efficient asset management.",
-    ],
     github: "https://github.com/PhatJack/portfolio-2025",
     website: "https://willam2003.site/",
     color: "hover:bg-blue-light",
@@ -28,47 +22,24 @@ const projects = [
   {
     id: 2,
     title: "MedicHIMS",
-    role: "Full-stack Developer | Team: 6",
     date: "Mar 2025 - Present",
     tags: ["NestJS", "Prisma", "ReactJS", "PostgreSQL"],
-    points: [
-      "Developed and refactored UI components to improve usability.",
-      "Integrated APIs into modules: healthcare service, medicine.",
-      "Maintained and optimized existing features by debugging, refactoring, and improving performance.",
-      "Built reusable UI components, custom hooks, and utility functions to minimize code duplication.",
-      "Developed the Healthcare Management modules following the HL7 FHIR standard.",
-    ],
     color: "hover:bg-pink-light",
     link: "#",
   },
   {
     id: 3,
     title: "MedicPHR",
-    role: "Full-stack Developer | Team: 6",
     date: "Mar 2025 - Present",
     tags: ["React-native", "Redux", "Supabase", "GraphQL"],
-    points: [
-      "Optimized user flows to reduce friction, improve usability, and increase overall customer satisfaction.",
-      "Integrated APIs into modules: pills, questionnaire, conditions.",
-      "Contributed to UI reviews and adjustments to enhance visual consistency and usability.",
-      "Developed slices, reducers, and actions to handle complex business logic.",
-    ],
     color: "hover:bg-green-light",
     link: "#",
   },
   {
     id: 4,
     title: "Onemedic.vn",
-    role: "Front-end Developer | Team: 2",
     date: "Mar 2025 - Present",
     tags: ["NextJS 14", "GraphQL", "Strapi CMS"],
-    points: [
-      "Integrated Apollo Client with Next.js for efficient data fetching and state management.",
-      "Optimized loading performance using caching, improving page load speed by 40%.",
-      "Developed and configured APIs in Strapi to handle form data from the UI.",
-      "Built reusable components to ensure consistency and maintainability.",
-      "Created documentation and step-by-step workflows for content management.",
-    ],
     website: "https://onemedic.com/vi",
     color: "hover:bg-yellow-light",
     link: "https://onemedic.com/vi",
@@ -76,14 +47,8 @@ const projects = [
   {
     id: 5,
     title: "Tu Tien Game",
-    role: "Front-end Developer",
     date: "Jul 2024 - Sep 2025",
     tags: ["ReactJS 18", "Django", "Websocket"],
-    points: [
-      "Developed and implemented interactive user interfaces for a cultivation game, enhancing user experience.",
-      "Optimized application performance by implementing code-splitting and lazy loading.",
-      "Implemented real-time communication using WebSocket to enable interactive boss battles in a multiplayer game.",
-    ],
     website: "https://tutien.pro/",
     color: "hover:bg-soft-orange",
     link: "https://tutien.pro/",
@@ -91,6 +56,7 @@ const projects = [
 ]
 
 const ProjectSection = () => {
+  const { t } = useI18n()
   const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -141,19 +107,22 @@ const ProjectSection = () => {
       <div className="w-full">
         <div data-project-heading className="mb-16 flex items-end gap-4">
           <h3 className="text-left text-6xl uppercase sm:whitespace-nowrap md:text-8xl md:leading-[0.75]">
-            Gallery of{" "}
+            {t.projects.headingStart}{" "}
             <span className="text-transparent [-webkit-text-stroke:4px_var(--bold-yellow)]">
-              work
+              {t.projects.headingAccent}
             </span>
           </h3>
           <span className="mb-1 h-1 w-full bg-border sm:inline hidden" />
           <span className="text-lg font-black whitespace-nowrap md:text-xl sm:inline hidden">
-            5 PROJECTS
+            {t.projects.count}
           </span>
         </div>
 
         <div className="flex flex-col border-t-4 border-r-4 border-border bg-white shadow-shadow">
-          {projects.map((project) => (
+          {projects.map((project, projectIndex) => {
+            const content = t.projects.items[projectIndex]
+
+            return (
             <div
               key={project.id}
               data-project-item
@@ -187,7 +156,7 @@ const ProjectSection = () => {
                   <div className="flex flex-col items-start gap-8 p-6 pt-0 md:p-10 lg:flex-row">
                     <div className="flex max-w-2xl flex-col gap-4">
                       <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-black tracking-tight uppercase md:text-base">
-                        <span className="text-foreground">{project.role}</span>
+                        <span className="text-foreground">{content.role}</span>
                         <span className="border-border text-foreground/50">
                           {project.date}
                         </span>
@@ -228,9 +197,9 @@ const ProjectSection = () => {
                         </div>
                       )}
 
-                      {project.points.length > 0 && (
+                      {content.points.length > 0 && (
                         <ul className="ml-6 flex list-outside list-disc flex-col gap-1 text-base leading-relaxed text-foreground/80 md:text-lg">
-                          {project.points.map((point, i) => (
+                          {content.points.map((point, i) => (
                             <li key={i}>{point}</li>
                           ))}
                         </ul>
@@ -249,7 +218,8 @@ const ProjectSection = () => {
                 </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

@@ -4,10 +4,12 @@ import { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useI18n } from "@/lib/i18n"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const ContactSection = () => {
+  const { t } = useI18n()
   const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -50,20 +52,22 @@ const ContactSection = () => {
           data-contact-reveal
           className="mb-6 text-3xl leading-none font-black tracking-tighter uppercase sm:text-4xl md:text-5xl lg:text-7xl"
         >
-          Let's build something <span className="text-soft-orange">loud</span> together.
+          {t.contact.headingStart}{" "}
+          <span className="text-soft-orange">{t.contact.headingAccent}</span>{" "}
+          {t.contact.headingEnd}
         </h2>
         <p
           data-contact-reveal
           className="mb-8 max-w-2xl text-base font-bold opacity-80 sm:text-lg md:text-2xl"
         >
-          Currently accepting new projects and creative collaborations.
+          {t.contact.subtitle}
         </p>
         <div data-contact-reveal className="flex flex-wrap items-center gap-3 sm:gap-4">
           <a
             className="flex w-full items-center justify-center gap-3 border-2 border-white bg-black px-4 py-3 text-sm font-black text-white uppercase shadow-shadow sm:w-auto sm:justify-start sm:px-6 sm:py-2 sm:text-lg md:px-8 md:text-xl"
             href="mailto:tienphat.ng693@gmail.com"
           >
-            Email Me @ tienphat.ng693@gmail.com
+            {t.contact.email}
           </a>
           <Button
             asChild

@@ -10,59 +10,31 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef } from "react"
 import HeaderSection from "./shared/header-section"
+import { useI18n } from "@/lib/i18n"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const careerItems = [
   {
-    period: "Mar 2025 - PRESENT",
-    role: "Full-stack Developer",
     company: "ONE MEDIC JSC",
-    description: [
-      "Developed UI from Figma designs using React and CoreUI.",
-      "Fetched and synchronized data in the frontend using React Query.",
-      "Performed client-side CRUD operations by interacting with PostgreSQL-backed APIs.",
-      "Collaborated in developing core product features and improving performance.",
-      "Debugged and resolved software defects to improve application stability and user experience.",
-      "Improved and refined UI components based on design updates and user feedback.",
-    ],
     cardClassName: "-rotate-1",
     markerClassName: "bg-bold-yellow",
     variant: "square",
   },
   {
-    period: "Aug 2024 - Mar 2025",
-    role: "Front-end Developer Intern",
     company: "LAGTUZ MEDIA",
-    description: [
-      "Participating in discussions with Designer to improve user experience.",
-      "Implemented enhancements that improve web functionality and responsiveness.",
-      "Developing and maintaining the front-end functionality of websites.",
-    ],
     cardClassName: "rotate-1",
     markerClassName: "bg-soft-green",
     variant: "circle",
   },
   {
-    period: "July 2024 - Aug 2025",
-    role: "Freelance Front-end Developer",
     company: "VARIOUS CLIENTS",
-    description: [
-      "Collaborated with clients to understand their requirements and translate them into functional web applications.",
-      "Designed and implemented user interfaces using React and Tailwind CSS.",
-      "Ensured cross-browser compatibility and optimized web applications for performance and responsiveness.",
-    ],
     cardClassName: "rotate-1",
     markerClassName: "bg-sky-blue",
     variant: "square",
   },
   {
-    period: "2021 - 2026",
-    role: "University Student",
     company: "SAI GON UNIVERSITY",
-    description: [
-      "Assisted in the development of static marketing pages and learned the fundamentals of semantic HTML and CSS architecture.",
-    ],
     cardClassName: "-rotate-2",
     markerClassName: "bg-coral-pink",
     variant: "rhombus",
@@ -70,6 +42,7 @@ const careerItems = [
 ] as const
 
 const CareerSection = () => {
+  const { t } = useI18n()
   const sectionRef = useRef<HTMLElement>(null)
 
   useGSAP(
@@ -143,23 +116,26 @@ const CareerSection = () => {
   return (
     <section ref={sectionRef} className="relative bg-pink-light px-4 py-20 sm:px-8">
       <HeaderSection
-        title="CAREER HIGHLIGHTS"
-        subtitle="A Journey of Growth and Impact"
+        title={t.career.title}
+        subtitle={t.career.subtitle}
       />
       <Timeline>
-        {careerItems.map((item) => (
-          <TimelineItem data-career-item key={`${item.period}-${item.role}`}>
+        {careerItems.map((item, itemIndex) => {
+          const content = t.career.items[itemIndex]
+
+          return (
+          <TimelineItem data-career-item key={`${content.period}-${content.role}`}>
             <TimelineContent>
               <div
                 className={`border-4 border-border bg-off-white p-6 font-manrope shadow-shadow ${item.cardClassName}`}
               >
                 <div className="mb-2 font-black text-sky-blue">
-                  {item.period}
+                  {content.period}
                 </div>
-                <h3 className="text-2xl font-black uppercase">{item.role}</h3>
+                <h3 className="text-2xl font-black uppercase">{content.role}</h3>
                 <div className="mb-4 text-lg font-bold">{item.company}</div>
                 <ul className="list-disc space-y-2 pl-5 text-sm">
-                  {item.description.map((desc, index) => (
+                  {content.description.map((desc, index) => (
                     <li key={index} className="font-medium">
                       {desc}
                     </li>
@@ -173,7 +149,8 @@ const CareerSection = () => {
             />
             <TimelineSpacer />
           </TimelineItem>
-        ))}
+          )
+        })}
       </Timeline>
     </section>
   )

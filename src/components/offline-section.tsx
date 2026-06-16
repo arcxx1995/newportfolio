@@ -9,44 +9,38 @@ import {
 } from "lucide-react"
 import HeaderSection from "./shared/header-section"
 import { cn } from "@/lib/utils"
+import { useI18n } from "@/lib/i18n"
 
 const HOBBIES = [
   {
-    name: "Coding",
     icon: <Code />,
     className:
       "md:col-span-2 md:row-span-2 shadow-bold-yellow hover:shadow-bold-yellow-hover",
   },
   {
-    name: "Traveling",
     icon: <Plane />,
     className:
       "md:col-span-2 shadow-sky-blue hover:shadow-sky-blue-hover",
   },
   {
-    name: "Walking",
     icon: <Footprints />,
     className: "shadow-soft-green hover:shadow-soft-green-hover",
   },
   {
-    name: "Hiking",
     icon: <Mountain />,
     className:
       "md:row-span-2 shadow-coral-pink hover:shadow-coral-pink-hover",
   },
   {
-    name: "Gaming",
     icon: <Gamepad2 />,
     className: "shadow-coral-pink hover:shadow-coral-pink-hover",
   },
   {
-    name: "Music",
     icon: <Music />,
     className:
       "md:col-span-2 shadow-sky-blue hover:shadow-sky-blue-hover",
   },
   {
-    name: "Coffee",
     icon: <Coffee />,
     className:
       "md:col-span-3 shadow-soft-orange hover:shadow-soft-orange-hover",
@@ -54,11 +48,13 @@ const HOBBIES = [
 ]
 
 const OfflineSection = () => {
+  const { t } = useI18n()
+
   return (
     <section className="relative bg-green-light px-4 py-20 sm:px-8">
       <HeaderSection
-        title="OFFLINE MODE"
-        subtitle="What I do in my free time when I'm not coding?"
+        title={t.offline.title}
+        subtitle={t.offline.subtitle}
         className="mr-0 ml-auto text-right"
       />
 
@@ -74,7 +70,7 @@ const OfflineSection = () => {
             <div className="text-black">{hobby.icon}</div>
 
             <h3 className="text-lg font-bold text-black uppercase">
-              {hobby.name}
+              {t.offline.hobbies[index]}
             </h3>
           </div>
         ))}
