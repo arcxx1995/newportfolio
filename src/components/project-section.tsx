@@ -112,8 +112,8 @@ const ProjectSection = () => {
               {t.projects.headingAccent}
             </span>
           </h3>
-          <span className="mb-1 h-1 w-full bg-border sm:inline hidden" />
-          <span className="text-lg font-black whitespace-nowrap md:text-xl sm:inline hidden">
+          <span className="mb-1 hidden h-1 w-full bg-border sm:inline" />
+          <span className="hidden text-lg font-black whitespace-nowrap sm:inline md:text-xl">
             {t.projects.count}
           </span>
         </div>
@@ -123,101 +123,109 @@ const ProjectSection = () => {
             const content = t.projects.items[projectIndex]
 
             return (
-            <div
-              key={project.id}
-              data-project-item
-              className={`group relative flex flex-col border-b-4 border-border transition-colors duration-300 ${project.color}`}
-            >
-              {/* Header Row */}
-              <div className="flex cursor-pointer flex-col justify-between p-6 md:p-10 lg:flex-row lg:items-center">
-                <div className="flex items-center gap-6 md:gap-12">
-                  <span className="text-2xl text-transparent opacity-50 [-webkit-text-stroke:2px_var(--border)] md:text-4xl">
-                    0{project.id}
-                  </span>
-                  <h4 className="text-4xl font-black tracking-tighter uppercase transition-transform duration-500 ease-out sm:text-6xl md:text-7xl lg:group-hover:translate-x-4">
-                    {project.title}
-                  </h4>
+              <div
+                key={project.id}
+                data-project-item
+                className={`group relative flex flex-col border-b-4 border-border transition-colors duration-300 ${project.color}`}
+              >
+                {/* Header Row */}
+                <div className="flex cursor-pointer flex-col justify-between p-6 md:p-10 lg:flex-row lg:items-center">
+                  <div className="flex items-center gap-6 md:gap-12">
+                    <span className="text-2xl text-transparent opacity-50 [-webkit-text-stroke:2px_var(--border)] md:text-4xl">
+                      0{project.id}
+                    </span>
+                    <h4 className="text-4xl font-black tracking-tighter uppercase transition-transform duration-500 ease-out sm:text-6xl md:text-7xl lg:group-hover:translate-x-4">
+                      {project.title}
+                    </h4>
+                  </div>
+                  <div className="mt-6 flex flex-wrap justify-start gap-3 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:mt-0 lg:opacity-0">
+                    {project.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        className="bg-coral-pink px-4 py-1.5 text-sm"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-6 flex flex-wrap justify-start gap-3 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:mt-0 lg:opacity-0">
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      className="bg-coral-pink px-4 py-1.5 text-sm"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
 
-              {/* Expandable Accordion Content */}
-              <div className="grid transition-[grid-template-rows] duration-500 ease-in-out sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr]">
-                <div className="overflow-hidden">
-                  <div className="flex flex-col items-start gap-8 p-6 pt-0 md:p-10 lg:flex-row">
-                    <div className="flex max-w-2xl flex-col gap-4">
-                      <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-black tracking-tight uppercase md:text-base">
-                        <span className="text-foreground">{content.role}</span>
-                        <span className="border-border text-foreground/50">
-                          {project.date}
-                        </span>
+                {/* Expandable Accordion Content */}
+                <div className="grid transition-[grid-template-rows] duration-500 ease-in-out sm:grid-rows-[0fr] sm:group-hover:grid-rows-[1fr]">
+                  <div className="overflow-hidden">
+                    <div className="flex flex-col items-start gap-8 p-6 pt-0 md:p-10 lg:flex-row">
+                      <div className="flex max-w-2xl flex-col gap-4">
+                        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-black tracking-tight uppercase md:text-base">
+                          <span className="text-foreground">
+                            {content.role}
+                            {content.team && (
+                              <span>
+                                <span> | </span>
+                                <span className="text-main">team: {content.team}</span>
+                              </span>
+                            )}
+                          </span>
+                          <span className="border-border text-foreground/50">
+                            {project.date}
+                          </span>
+                        </div>
+
+                        {(project.github || project.website) && (
+                          <div className="mt-2 flex flex-wrap gap-3">
+                            {project.github && (
+                              <Button
+                                asChild
+                                variant={"default"}
+                                className="bg-soft-orange"
+                              >
+                                <a
+                                  href={project.github}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  GitHub
+                                </a>
+                              </Button>
+                            )}
+                            {project.website && (
+                              <Button
+                                variant={"default"}
+                                className="bg-bold-yellow"
+                                asChild
+                              >
+                                <a
+                                  href={project.website}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  Website
+                                </a>
+                              </Button>
+                            )}
+                          </div>
+                        )}
+
+                        {content.points.length > 0 && (
+                          <ul className="ml-6 flex list-outside list-disc flex-col gap-1 text-base leading-relaxed text-foreground/80 md:text-lg">
+                            {content.points.map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
 
-                      {(project.github || project.website) && (
-                        <div className="mt-2 flex flex-wrap gap-3">
-                          {project.github && (
-                            <Button
-                              asChild
-                              variant={"default"}
-                              className="bg-soft-orange"
-                            >
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                GitHub
-                              </a>
-                            </Button>
-                          )}
-                          {project.website && (
-                            <Button
-                              variant={"default"}
-                              className="bg-bold-yellow"
-                              asChild
-                            >
-                              <a
-                                href={project.website}
-                                target="_blank"
-                                rel="noreferrer"
-                              >
-                                Website
-                              </a>
-                            </Button>
-                          )}
-                        </div>
-                      )}
-
-                      {content.points.length > 0 && (
-                        <ul className="ml-6 flex list-outside list-disc flex-col gap-1 text-base leading-relaxed text-foreground/80 md:text-lg">
-                          {content.points.map((point, i) => (
-                            <li key={i}>{point}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-
-                    {/* Placeholder Image container */}
-                    <div className="relative flex h-37 w-full items-center justify-center overflow-hidden border-4 border-border bg-off-white shadow-shadow sm:h-64 md:h-80 lg:flex-1">
-                      <div className="bg-jigsaw absolute inset-0"></div>
-                      <img
-                        src={`/projects/${project.id}.png`}
-                        className="absolute inset-0 size-full object-contain"
-                      />
+                      {/* Placeholder Image container */}
+                      <div className="relative flex h-37 w-full items-center justify-center overflow-hidden border-4 border-border bg-off-white shadow-shadow sm:h-64 md:h-80 lg:flex-1">
+                        <div className="bg-jigsaw absolute inset-0"></div>
+                        <img
+                          src={`/projects/${project.id}.png`}
+                          className="absolute inset-0 size-full object-contain"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             )
           })}
         </div>

@@ -98,7 +98,7 @@ const Footer = () => {
             >
               ©{year} {t.footer.copyright}
             </p>
-            <p className="mt-4 font-manrope text-sm font-bold tracking-wider text-black uppercase opacity-70">
+            <p className="mt-4 font-space-grotesk text-sm font-bold tracking-wider text-black uppercase opacity-70">
               {t.footer.builtWith}
             </p>
           </div>

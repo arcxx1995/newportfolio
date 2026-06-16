@@ -124,7 +124,7 @@ const en = {
     count: "5 Projects",
     items: [
       {
-        role: "Developer",
+        role: "Software Engineer",
         points: [
           "Designed and developed a personal portfolio website using ReactJS and TailwindCSS, showcasing projects and skills with a clean and modern design.",
           "Using neu-brutalism design principles to create a visually appealing and unique user interface.",
@@ -133,7 +133,8 @@ const en = {
         ],
       },
       {
-        role: "Full-stack Developer | Team: 6",
+        role: "Full-stack Developer",
+				team: 6,
         points: [
           "Developed and refactored UI components to improve usability.",
           "Integrated APIs into modules: healthcare service, medicine.",
@@ -143,7 +144,8 @@ const en = {
         ],
       },
       {
-        role: "Full-stack Developer | Team: 6",
+        role: "Full-stack Developer",
+				team: 6,
         points: [
           "Optimized user flows to reduce friction, improve usability, and increase overall customer satisfaction.",
           "Integrated APIs into modules: pills, questionnaire, conditions.",
@@ -152,7 +154,8 @@ const en = {
         ],
       },
       {
-        role: "Front-end Developer | Team: 2",
+        role: "Front-end Developer",
+				team: 2,
         points: [
           "Integrated Apollo Client with Next.js for efficient data fetching and state management.",
           "Optimized loading performance using caching, improving page load speed by 40%.",
