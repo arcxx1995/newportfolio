@@ -10,19 +10,15 @@ gsap.registerPlugin(ScrollTrigger)
 const MENU_SOCIALS = [
   {
     label: "INSTAGRAM",
-    href: "https://www.instagram.com/sep_neit.tahp/",
+    href: "https://instagram.com/spacekapow",
   },
   {
     label: "LINKEDIN",
-    href: "https://www.linkedin.com/in/phat-nguyen-tien/",
-  },
-  {
-    label: "X",
-    href: "https://x.com/jackphat693",
+    href: "https://www.linkedin.com/in/arpanroyc/",
   },
   {
     label: "GITHUB",
-    href: "https://github.com/PhatJack",
+    href: "https://github.com/arcxx1995",
   },
 ]
 
@@ -66,7 +62,7 @@ const Footer = () => {
       >
         <div className="w-full">
           <h2 className="text-[12vw] leading-none font-black tracking-tighter text-black uppercase md:text-[10vw]">
-            JACKPHAT.EXE
+            ARPANROY.EXE
           </h2>
         </div>
         <div className="mt-6 flex flex-col items-end justify-between gap-12 sm:mt-12 md:flex-row">

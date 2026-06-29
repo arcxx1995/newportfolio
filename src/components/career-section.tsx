@@ -16,28 +16,34 @@ gsap.registerPlugin(ScrollTrigger)
 
 const careerItems = [
   {
-    company: "ONE MEDIC JSC",
+    company: "MENTALYC INC",
     cardClassName: "-rotate-1",
     markerClassName: "bg-bold-yellow",
     variant: "square",
   },
   {
-    company: "LAGTUZ MEDIA",
+    company: "VIACT.AI",
     cardClassName: "rotate-1",
     markerClassName: "bg-soft-green",
     variant: "circle",
   },
   {
-    company: "VARIOUS CLIENTS",
+    company: "DAPPRADAR",
     cardClassName: "rotate-1",
     markerClassName: "bg-sky-blue",
     variant: "square",
   },
   {
-    company: "SAI GON UNIVERSITY",
+    company: "HAKUNA",
     cardClassName: "-rotate-2",
     markerClassName: "bg-coral-pink",
     variant: "rhombus",
+  },
+  {
+    company: "ET MEDIA LABS",
+    cardClassName: "rotate-1",
+    markerClassName: "bg-soft-orange",
+    variant: "circle",
   },
 ] as const
 

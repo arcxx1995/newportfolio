@@ -45,7 +45,7 @@ const SkillsSection = () => {
       icon: <Code />,
       tone: "bg-sky-blue",
       cardTone: "bg-blue-light",
-      items: ["JavaScript", "TypeScript", "Python", "HTML5/CSS3", "GRAPHQL"],
+      items: ["JavaScript", "TypeScript", "Python", "PHP", "SQL"],
     },
     {
       label: t.skills.groups[1].label,
@@ -55,13 +55,12 @@ const SkillsSection = () => {
       items: [
         "React",
         "Next.js",
-        "NestJS",
-        "React-native",
+        "Node.js",
         "Tailwind CSS",
-        "Prisma",
-        "Astro",
-        "Shadcn UI",
-        "Core UI",
+        "shadcn/ui",
+        "LangChain",
+        "LangGraph",
+        "Supabase",
       ],
     },
     {
@@ -69,7 +68,7 @@ const SkillsSection = () => {
       icon: <Wrench />,
       tone: "bg-bold-yellow",
       cardTone: "bg-yellow-light",
-      items: ["Git/Github", "Docker", "Vercel", "Figma", "Postman", "Vite"],
+      items: ["Docker", "Kubernetes", "AWS", "GCP", "Vercel", "Postman"],
     },
   ]
   return (

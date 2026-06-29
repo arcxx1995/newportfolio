@@ -5,7 +5,7 @@ import { Link, useLocation } from "@tanstack/react-router"
 import gsap from "gsap"
 import { Menu, X } from "lucide-react"
 import { useGSAP } from "@gsap/react"
-import { buildLocalePath, type Locale, LOCALES, useI18n } from "@/lib/i18n"
+import { buildLocalePath, useI18n } from "@/lib/i18n"
 
 const Header = () => {
   const location = useLocation()
@@ -17,32 +17,6 @@ const Header = () => {
   const lastScrollY = useRef(0)
   const localePath = buildLocalePath(locale)
   const activeHash = location.hash.replace(/^#/, "")
-
-  const getLocaleLink = (nextLocale: Locale) => ({
-    to: buildLocalePath(nextLocale),
-    hash: activeHash,
-  })
-
-  const LanguageSwitcher = ({ className }: { className?: string }) => (
-    <div
-      aria-label={t.header.languageLabel}
-      className={cn("flex border-2 border-border bg-off-white", className)}
-    >
-      {LOCALES.map((item) => (
-        <Link
-          key={item}
-          {...getLocaleLink(item)}
-          onClick={() => setOpen(false)}
-          className={cn(
-            "px-3 py-2 font-manrope text-sm font-black uppercase transition-colors hover:bg-main",
-            item === locale && "bg-main"
-          )}
-        >
-          {item}
-        </Link>
-      ))}
-    </div>
-  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,8 +98,14 @@ const Header = () => {
           {/* CTA (desktop) */}
           <div className="hidden items-center gap-3 md:flex">
             {/* <LanguageSwitcher /> */}
-            <Button className="bg-bold-yellow" variant={"reverse"}>
-              {t.header.cta}
+            <Button className="bg-bold-yellow" variant={"reverse"} asChild>
+              <a
+                href="https://calendly.com/arpanroychowdhury/general-meeting-with-arpan"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t.header.cta}
+              </a>
             </Button>
           </div>
 
@@ -167,8 +147,15 @@ const Header = () => {
             ))}
 
             {/* <LanguageSwitcher className="w-fit" /> */}
-            <Button className="w-full bg-bold-yellow" variant={"reverse"}>
-              {t.header.cta}
+            <Button className="w-full bg-bold-yellow" variant={"reverse"} asChild>
+              <a
+                href="https://calendly.com/arpanroychowdhury/general-meeting-with-arpan"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+              >
+                {t.header.cta}
+              </a>
             </Button>
           </ul>
         </div>

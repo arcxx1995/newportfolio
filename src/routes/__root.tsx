@@ -17,11 +17,11 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "jackphat.dev",
+        title: "Arpan Roy Chowdhury — Full-Stack & AI Engineer",
       },
       {
         property: "og:title",
-        content: "jackphat.dev",
+        content: "Arpan Roy Chowdhury",
       },
       {
         property: "og:image",
@@ -29,7 +29,7 @@ export const Route = createRootRoute({
       },
 			{
         property: "og:url",
-        content: "https://www.willam2003.site",
+        content: "https://arpanroychowdhury.me",
       },
 			{
         property: "og:type",
@@ -42,7 +42,7 @@ export const Route = createRootRoute({
       },
       {
         name: "twitter:title",
-        content: "jackphat.dev",
+        content: "Arpan Roy Chowdhury",
       },
       {
         name: "twitter:image",
@@ -50,6 +50,20 @@ export const Route = createRootRoute({
       },
     ],
     links: [
+      {
+        rel: "icon",
+        href: "/favicon.ico",
+        type: "image/x-icon",
+      },
+      {
+        rel: "shortcut icon",
+        href: "/favicon.ico",
+        type: "image/x-icon",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/favicon.ico",
+      },
       {
         rel: "stylesheet",
         href: appCss,

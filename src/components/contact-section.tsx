@@ -65,7 +65,7 @@ const ContactSection = () => {
         <div data-contact-reveal className="flex flex-wrap items-center gap-3 sm:gap-4">
           <a
             className="flex w-full items-center justify-center gap-3 border-2 border-white bg-black px-4 py-3 text-sm font-black text-white uppercase shadow-shadow sm:w-auto sm:justify-start sm:px-6 sm:py-2 sm:text-lg md:px-8 md:text-xl"
-            href="mailto:tienphat.ng693@gmail.com"
+            href="mailto:arcxx1995@gmail.com"
           >
             {t.contact.email}
           </a>
