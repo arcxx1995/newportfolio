@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useParams } from "@tanstack/react-router"
 
-export const LOCALES = ["en", "vi"] as const
+export const LOCALES = ["en"] as const
 export type Locale = (typeof LOCALES)[number]
 
 export const DEFAULT_LOCALE: Locale = "en"
@@ -18,10 +18,10 @@ export const buildLocalePath = (locale: Locale) =>
 const en = {
   meta: {
     description:
-      "Jack Phat's personal portfolio showcasing projects, skills, and career highlights.",
+      "Arpan Roy Chowdhury's portfolio — full-stack and AI-native software engineer building and shipping production applications end-to-end.",
     twitterDescription:
-      "Jack Phat's personal portfolio website showcasing his skills, projects, and career highlights as a software engineer.",
-    imageAlt: "Portfolio preview of Jack Phat",
+      "Arpan Roy Chowdhury — full-stack & AI-native software engineer. Backend services, frontends, and the AI systems that power them.",
+    imageAlt: "Portfolio preview of Arpan Roy Chowdhury",
   },
   header: {
     nav: [
@@ -35,20 +35,20 @@ const en = {
     menuLabel: "Toggle menu",
   },
   about: {
-    imageAlt: "Portrait of Jack Phat",
-    highlight: "hyper-tactile digital experiences",
-    descriptionStart: "I build",
+    imageAlt: "Portrait of Arpan Roy Chowdhury",
+    highlight: "production-grade, AI-native software",
+    descriptionStart: "I design, build, and ship",
     descriptionEnd:
-      "that push beyond conventional design. No templates. No boring grids. Just pure, raw frontend architecture crafted to feel as good as it looks. Every interaction is intentional, every detail matters. Working from Vietnam, I collaborate with clients and teams around the world to create bold, memorable products.",
+      "end-to-end — backend services, frontend interfaces, and the AI systems that power them. A forward deployed engineer who embeds with teams, turns ambiguous requirements into working software, and owns delivery from architecture through production. Working from Bengaluru, India with teams around the world.",
     resume: "View my resume",
-    stats: ["experiences", "clients", "projects", "github stars"],
+    stats: ["years experience", "companies", "personal projects", "users reached"],
   },
   marquee: [
     "Builder",
-    "Analytical",
+    "AI-Native",
+    "Full-Stack",
+    "Forward Deployed",
     "Scalable",
-    "Efficient",
-    "Innovative",
     "Reliable",
     "Adaptable",
     "Problem-solver",
@@ -63,44 +63,52 @@ const en = {
     ],
   },
   career: {
-    title: "Career Highlights",
-    subtitle: "A Journey of Growth and Impact",
+    title: "Work Experience",
+    subtitle: "Six Years of Shipping Production Software",
     items: [
       {
-        period: "Mar 2025 - Present",
-        role: "Full-stack Developer",
+        period: "Mar 2026 - Present",
+        role: "Forward Deployed Engineer",
         description: [
-          "Developed UI from Figma designs using React and CoreUI.",
-          "Fetched and synchronized data in the frontend using React Query.",
-          "Performed client-side CRUD operations by interacting with PostgreSQL-backed APIs.",
-          "Collaborated in developing core product features and improving performance.",
-          "Debugged and resolved software defects to improve application stability and user experience.",
-          "Improved and refined UI components based on design updates and user feedback.",
+          "Build and ship AI-native clinical documentation workflows end-to-end — transcription pipelines, LLM-driven structured note generation (SOAP / DAP / BIRP), and the frontend practitioners use daily — in a HIPAA-conscious environment.",
+          "Engineer REST API integrations between internal services and healthcare documentation systems, orchestrating multi-step, production-grade workflows.",
+          "Design data models and serverless backend logic, and build internal tooling for onboarding, reliability, and scale.",
+          "Embed directly with customers to run technical discovery and turn clinical workflows into deployed software.",
         ],
       },
       {
-        period: "Aug 2024 - Mar 2025",
-        role: "Front-end Developer Intern",
+        period: "Dec 2024 - Mar 2026",
+        role: "Software Engineer",
         description: [
-          "Participating in discussions with Designer to improve user experience.",
-          "Implemented enhancements that improve web functionality and responsiveness.",
-          "Developing and maintaining the front-end functionality of websites.",
+          "Developed full-stack features for an enterprise AI safety platform — backend APIs for real-time monitoring and risk detection, plus dashboards visualizing computer-vision and IoT data streams.",
+          "Built data pipelines processing real-time streams from edge devices and CV models; designed APIs and webhooks connecting edge processing, IoT, and cloud services.",
+          "Containerized services with Docker and deployed across cloud environments for enterprise reliability and scale.",
         ],
       },
       {
-        period: "July 2024 - Aug 2025",
-        role: "Freelance Front-end Developer",
+        period: "Jul 2023 - Dec 2024",
+        role: "SDE II",
         description: [
-          "Collaborated with clients to understand their requirements and translate them into functional web applications.",
-          "Designed and implemented user interfaces using React and Tailwind CSS.",
-          "Ensured cross-browser compatibility and optimized web applications for performance and responsiveness.",
+          "Built and maintained backend services and APIs (Node.js / PHP) powering DappRadar's Web3 analytics — indexing on-chain data across multiple blockchains for 1M+ users.",
+          "Developed high-throughput pipelines ingesting and normalizing real-time blockchain data, exposed through performant REST APIs and dashboards.",
+          "Worked across the stack on data accuracy, reliability, and scale for multi-chain analytics.",
         ],
       },
       {
-        period: "2021 - 2026",
-        role: "University Student",
+        period: "Jan 2021 - Jul 2023",
+        role: "Application Developer",
         description: [
-          "Assisted in the development of static marketing pages and learned the fundamentals of semantic HTML and CSS architecture.",
+          "Developed full-stack and native iOS features (Swift, Xcode) for a real-time live-streaming social platform with 10M+ downloads.",
+          "Worked with WebRTC for low-latency HD live broadcasts and multi-guest video rooms across web and iOS.",
+          "Built engagement, in-app gifting, virtual currency, and content discovery features.",
+        ],
+      },
+      {
+        period: "Mar 2020 - Nov 2020",
+        role: "Executive Systems Engineer",
+        description: [
+          "Built systems and automation for multi-channel data acquisition and analytics across digital growth platforms.",
+          "Developed reporting tooling integrating Google Analytics, Looker Studio, and platform APIs; automated data and experimentation pipelines.",
         ],
       },
     ],
@@ -110,255 +118,61 @@ const en = {
     subtitle: "What I do in my free time when I'm not coding?",
     hobbies: [
       "Coding",
-      "Traveling",
+      "Reading",
       "Walking",
-      "Hiking",
+      "Football",
       "Gaming",
       "Music",
       "Coffee",
     ],
   },
   projects: {
-    headingStart: "Gallery of",
-    headingAccent: "work",
-    count: "5 Projects",
+    headingStart: "Personal",
+    headingAccent: "projects",
+    count: "3 Projects",
     items: [
       {
-        role: "Software Engineer",
+        role: "Founder & Engineer",
         points: [
-          "Designed and developed a personal portfolio website using ReactJS and TailwindCSS, showcasing projects and skills with a clean and modern design.",
-          "Using neu-brutalism design principles to create a visually appealing and unique user interface.",
-          "Implemented responsive design to ensure optimal viewing experience across various devices and screen sizes.",
-          "Optimized website performance by implementing lazy loading, code splitting, and efficient asset management.",
+          "Designed and launched (beta) a sea-themed, serendipity-driven daily anonymous messaging app built around calm, meaningful connection — owned end-to-end from concept through release.",
+          "Built auth, data model, and serverless backend on Supabase / PostgreSQL, deployed on Vercel.",
+          "Building towards voice snippets, guided onboarding, and WhatsApp notifications via third-party API integration.",
         ],
       },
       {
-        role: "Full-stack Developer",
-				team: 6,
+        role: "Founder & Engineer",
         points: [
-          "Developed and refactored UI components to improve usability.",
-          "Integrated APIs into modules: healthcare service, medicine.",
-          "Maintained and optimized existing features by debugging, refactoring, and improving performance.",
-          "Built reusable UI components, custom hooks, and utility functions to minimize code duplication.",
-          "Developed the Healthcare Management modules following the HL7 FHIR standard.",
+          "Building a real-time 1v1 competitive CAT test-prep app — head-to-head battles with live matchmaking and synchronized game state over Supabase Realtime.",
+          "Designing ELO-based matchmaking and section-level scoring, with authoritative game logic enforced server-side via PostgreSQL security-definer RPCs.",
+          "Implementing a national leaderboard, auth, and data model on Supabase / PostgreSQL; frontend in Next.js (App Router) on Vercel.",
         ],
       },
       {
-        role: "Full-stack Developer",
-				team: 6,
+        role: "Founder & Engineer",
         points: [
-          "Optimized user flows to reduce friction, improve usability, and increase overall customer satisfaction.",
-          "Integrated APIs into modules: pills, questionnaire, conditions.",
-          "Contributed to UI reviews and adjustments to enhance visual consistency and usability.",
-          "Developed slices, reducers, and actions to handle complex business logic.",
-        ],
-      },
-      {
-        role: "Front-end Developer",
-				team: 2,
-        points: [
-          "Integrated Apollo Client with Next.js for efficient data fetching and state management.",
-          "Optimized loading performance using caching, improving page load speed by 40%.",
-          "Developed and configured APIs in Strapi to handle form data from the UI.",
-          "Built reusable components to ensure consistency and maintainability.",
-          "Created documentation and step-by-step workflows for content management.",
-        ],
-      },
-      {
-        role: "Front-end Developer",
-        points: [
-          "Developed and implemented interactive user interfaces for a cultivation game, enhancing user experience.",
-          "Optimized application performance by implementing code-splitting and lazy loading.",
-          "Implemented real-time communication using WebSocket to enable interactive boss battles in a multiplayer game.",
+          "Building a voice-first daily tarot reading app where seekers record one question, choose card positions, and wait for a real human reader before any cards are revealed.",
+          "Designed the no-auth seeker flow: in-memory recording and deck selection, Merchant of Record checkout integrated, session-token access, and sealed server-side card assignment.",
+          "Architected Supabase / PostgreSQL storage, RLS, Edge Functions, MoR payment reconciliation, reader queue, Resend notification, and server-side garden state for completed readings.",
         ],
       },
     ],
   },
   contact: {
     headingStart: "Let's build something",
-    headingAccent: "loud",
+    headingAccent: "ambitious",
     headingEnd: "together.",
-    subtitle: "Currently accepting new projects and creative collaborations.",
-    email: "Email Me @ tienphat.ng693@gmail.com",
+    subtitle:
+      "Open to forward deployed and full-stack roles, and to building AI-native products end-to-end.",
+    email: "Email Me @ arcxx1995@gmail.com",
   },
   footer: {
     scrollTop: "Scroll to top",
-    copyright: "Non-conformist curations / all errors intended",
-    builtWith: "Built with love from JackPhat",
+    copyright: "Forward deployed / shipped with intent",
+    builtWith: "Built by Arpan Roy Chowdhury",
   },
 }
 
-const vi: typeof en = {
-  meta: {
-    description:
-      "Portfolio cá nhân của Jack Phat, giới thiệu dự án, kỹ năng và dấu ấn nghề nghiệp.",
-    twitterDescription:
-      "Website portfolio cá nhân của Jack Phat, giới thiệu kỹ năng, dự án và hành trình nghề nghiệp của một software engineer.",
-    imageAlt: "Ảnh xem trước portfolio của Jack Phat",
-  },
-  header: {
-    nav: [
-      { hash: "", label: "Trang chủ" },
-      { hash: "about", label: "Giới thiệu" },
-      { hash: "projects", label: "Dự án" },
-      { hash: "contact", label: "Liên hệ" },
-    ],
-    cta: "Trao đổi ngay",
-    languageLabel: "Ngôn ngữ",
-    menuLabel: "Mở menu",
-  },
-  about: {
-    imageAlt: "Chân dung Jack Phat",
-    highlight: "những trải nghiệm số giàu tính tương tác",
-    descriptionStart: "Tôi xây dựng",
-    descriptionEnd:
-      "vượt xa những khuôn mẫu thiết kế thông thường. Không sử dụng template có sẵn, không bó buộc trong những bố cục nhàm chán. Mỗi giao diện được tạo ra với sự chỉn chu trong từng chi tiết, mỗi tương tác đều có mục đích rõ ràng. Làm việc từ Việt Nam, tôi hợp tác cùng khách hàng và các đội ngũ trên khắp thế giới để tạo nên những sản phẩm số khác biệt, ấn tượng và đáng nhớ.",
-    resume: "Xem hồ sơ",
-    stats: ["năm kinh nghiệm", "khách hàng", "dự án", "sao GitHub"],
-  },
-  marquee: [
-    "Kiến tạo",
-    "Phân tích",
-    "Mở rộng",
-    "Hiệu quả",
-    "Sáng tạo",
-    "Tin cậy",
-    "Linh hoạt",
-    "Giải quyết vấn đề",
-  ],
-  skills: {
-    title: "Bộ kỹ năng",
-    subtitle: "Công cụ và công nghệ",
-    groups: [
-      { label: "Ngôn ngữ" },
-      { label: "Framework & Thư viện" },
-      { label: "Công cụ & Nền tảng" },
-    ],
-  },
-  career: {
-    title: "Dấu ấn nghề nghiệp",
-    subtitle: "Hành trình phát triển và tạo tác động",
-    items: [
-      {
-        period: "03/2025 - Hiện tại",
-        role: "Full-stack Developer",
-        description: [
-          "Phát triển giao diện từ thiết kế Figma bằng React và CoreUI.",
-          "Lấy và đồng bộ dữ liệu ở frontend bằng React Query.",
-          "Thực hiện các thao tác CRUD phía client thông qua API kết nối PostgreSQL.",
-          "Tham gia phát triển tính năng lõi và cải thiện hiệu năng sản phẩm.",
-          "Debug và xử lý lỗi phần mềm để tăng độ ổn định và trải nghiệm người dùng.",
-          "Cải thiện component UI dựa trên cập nhật thiết kế và phản hồi người dùng.",
-        ],
-      },
-      {
-        period: "08/2024 - 03/2025",
-        role: "Front-end Developer Intern",
-        description: [
-          "Tham gia trao đổi với Designer để cải thiện trải nghiệm người dùng.",
-          "Triển khai các cải tiến giúp website hoạt động tốt và responsive hơn.",
-          "Phát triển và bảo trì chức năng frontend cho các website.",
-        ],
-      },
-      {
-        period: "07/2024 - 08/2025",
-        role: "Freelance Front-end Developer",
-        description: [
-          "Làm việc với khách hàng để hiểu yêu cầu và chuyển hóa thành web application thực tế.",
-          "Thiết kế và triển khai giao diện bằng React và Tailwind CSS.",
-          "Đảm bảo tương thích trình duyệt và tối ưu hiệu năng, responsive cho ứng dụng web.",
-        ],
-      },
-      {
-        period: "2021 - 2026",
-        role: "Sinh viên đại học",
-        description: [
-          "Tham gia phát triển các trang marketing tĩnh và học nền tảng về semantic HTML cùng kiến trúc CSS.",
-        ],
-      },
-    ],
-  },
-  offline: {
-    title: "OFFLINE MOD",
-    subtitle: "Tôi làm gì khi rảnh và không viết code?",
-    hobbies: [
-      "Coding",
-      "Du lịch",
-      "Đi bộ",
-      "Leo núi",
-      "Chơi game",
-      "Âm nhạc",
-      "Cà phê",
-    ],
-  },
-  projects: {
-    headingStart: "Bộ sưu tập",
-    headingAccent: "dự án",
-    count: "5 Dự án",
-    items: [
-      {
-        role: "Developer",
-        points: [
-          "Thiết kế và phát triển website portfolio cá nhân bằng ReactJS và TailwindCSS, giới thiệu dự án và kỹ năng với giao diện sạch, hiện đại.",
-          "Ứng dụng tinh thần neu-brutalism để tạo giao diện khác biệt và có sức hút thị giác.",
-          "Triển khai responsive design để tối ưu trải nghiệm trên nhiều thiết bị và kích thước màn hình.",
-          "Tối ưu hiệu năng website bằng lazy loading, code splitting và quản lý asset hiệu quả.",
-        ],
-      },
-      {
-        role: "Full-stack Developer | Team: 6",
-        points: [
-          "Phát triển và refactor component UI để cải thiện khả năng sử dụng.",
-          "Tích hợp API cho các module: dịch vụ y tế, thuốc.",
-          "Bảo trì và tối ưu tính năng hiện có thông qua debug, refactor và cải thiện hiệu năng.",
-          "Xây dựng component UI, custom hook và utility tái sử dụng để giảm trùng lặp code.",
-          "Phát triển các module Healthcare Management theo tiêu chuẩn HL7 FHIR.",
-        ],
-      },
-      {
-        role: "Full-stack Developer | Team: 6",
-        points: [
-          "Tối ưu luồng người dùng để giảm ma sát, cải thiện usability và tăng mức độ hài lòng.",
-          "Tích hợp API cho các module: thuốc, bảng câu hỏi, tình trạng sức khỏe.",
-          "Đóng góp vào review UI và điều chỉnh để tăng tính nhất quán thị giác và usability.",
-          "Phát triển slice, reducer và action để xử lý logic nghiệp vụ phức tạp.",
-        ],
-      },
-      {
-        role: "Front-end Developer | Team: 2",
-        points: [
-          "Tích hợp Apollo Client với Next.js để fetch dữ liệu và quản lý state hiệu quả.",
-          "Tối ưu hiệu năng tải trang bằng caching, cải thiện tốc độ load khoảng 40%.",
-          "Phát triển và cấu hình API trong Strapi để xử lý dữ liệu form từ UI.",
-          "Xây dựng component tái sử dụng để giữ tính nhất quán và dễ bảo trì.",
-          "Tạo tài liệu và workflow từng bước cho quản lý nội dung.",
-        ],
-      },
-      {
-        role: "Front-end Developer",
-        points: [
-          "Phát triển giao diện tương tác cho game tu tiên, nâng cao trải nghiệm người dùng.",
-          "Tối ưu hiệu năng ứng dụng bằng code-splitting và lazy loading.",
-          "Triển khai giao tiếp thời gian thực bằng WebSocket cho các trận boss battle multiplayer.",
-        ],
-      },
-    ],
-  },
-  contact: {
-    headingStart: "Cùng xây một thứ",
-    headingAccent: "nổi bật",
-    headingEnd: "nhé.",
-    subtitle: "Hiện tôi đang nhận dự án mới và các cơ hội cộng tác sáng tạo.",
-    email: "Gửi email @ tienphat.ng693@gmail.com",
-  },
-  footer: {
-    scrollTop: "Lên đầu trang",
-    copyright: "Tuyển tập không theo khuôn / mọi lỗi đều có chủ ý",
-    builtWith: "Được xây dựng bằng tình yêu bởi JackPhat",
-  },
-}
-
-export const dictionaries = { en, vi } as const
+export const dictionaries = { en } as const
 
 export type Dictionary = typeof en
 

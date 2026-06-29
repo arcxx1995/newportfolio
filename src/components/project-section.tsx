@@ -11,47 +11,30 @@ gsap.registerPlugin(ScrollTrigger)
 const projects = [
   {
     id: 1,
-    title: "Portfolio",
-    date: "Jan 2025 - Feb 2025",
-    tags: ["AstroJS", "TailwindCSS", "Markdown"],
-    github: "https://github.com/PhatJack/portfolio-2025",
-    website: "https://willam2003.site/",
+    title: "Glassbottles",
+    date: "2025 - Present",
+    tags: ["Next.js", "Supabase", "PostgreSQL", "Vercel"],
+    website: "https://glassbottles.app",
     color: "hover:bg-blue-light",
-    link: "https://willam2003.site/",
+    link: "https://glassbottles.app",
   },
   {
     id: 2,
-    title: "MedicHIMS",
-    date: "Mar 2025 - Present",
-    tags: ["NestJS", "Prisma", "ReactJS", "PostgreSQL"],
-    color: "hover:bg-pink-light",
-    link: "#",
+    title: "Ninjatest",
+    date: "2025 - Present",
+    tags: ["Next.js", "Supabase Realtime", "PostgreSQL"],
+    website: "https://ninjatest.app",
+    color: "hover:bg-green-light",
+    link: "https://ninjatest.app",
   },
   {
     id: 3,
-    title: "MedicPHR",
-    date: "Mar 2025 - Present",
-    tags: ["React-native", "Redux", "Supabase", "GraphQL"],
-    color: "hover:bg-green-light",
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "Onemedic.vn",
-    date: "Mar 2025 - Present",
-    tags: ["NextJS 14", "GraphQL", "Strapi CMS"],
-    website: "https://onemedic.com/vi",
-    color: "hover:bg-yellow-light",
-    link: "https://onemedic.com/vi",
-  },
-  {
-    id: 5,
-    title: "Tu Tien Game",
-    date: "Jul 2024 - Sep 2025",
-    tags: ["ReactJS 18", "Django", "Websocket"],
-    website: "https://tutien.pro/",
-    color: "hover:bg-soft-orange",
-    link: "https://tutien.pro/",
+    title: "Iris Luna",
+    date: "2025 - Present",
+    tags: ["Next.js", "Supabase", "MoR Payments", "Vercel"],
+    website: "",
+    color: "hover:bg-pink-light",
+    link: "",
   },
 ]
 
@@ -156,37 +139,14 @@ const ProjectSection = () => {
                     <div className="flex flex-col items-start gap-8 p-6 pt-0 md:p-10 lg:flex-row">
                       <div className="flex max-w-2xl flex-col gap-4">
                         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-black tracking-tight uppercase md:text-base">
-                          <span className="text-foreground">
-                            {content.role}
-                            {content.team && (
-                              <span>
-                                <span> | </span>
-                                <span className="text-main">team: {content.team}</span>
-                              </span>
-                            )}
-                          </span>
+                          <span className="text-foreground">{content.role}</span>
                           <span className="border-border text-foreground/50">
                             {project.date}
                           </span>
                         </div>
 
-                        {(project.github || project.website) && (
+                        {project.website && (
                           <div className="mt-2 flex flex-wrap gap-3">
-                            {project.github && (
-                              <Button
-                                asChild
-                                variant={"default"}
-                                className="bg-soft-orange"
-                              >
-                                <a
-                                  href={project.github}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                >
-                                  GitHub
-                                </a>
-                              </Button>
-                            )}
                             {project.website && (
                               <Button
                                 variant={"default"}

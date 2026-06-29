@@ -10,15 +10,14 @@ import { useI18n } from "@/lib/i18n"
 gsap.registerPlugin(ScrollTrigger)
 
 const STATS = [
-  { value: 1.5, decimals: 1, suffix: "+", tone: "bg-soft-orange" },
-  { value: 2, decimals: 0, suffix: "+", tone: "bg-coral-pink" },
-  { value: 10, decimals: 0, suffix: "+", tone: "bg-soft-green" },
-  { value: 20, decimals: 0, suffix: "+", tone: "bg-bold-yellow" },
+  { value: 6, decimals: 0, suffix: "+", tone: "bg-soft-orange" },
+  { value: 5, decimals: 0, suffix: "+", tone: "bg-coral-pink" },
+  { value: 2, decimals: 0, suffix: "+", tone: "bg-soft-green" },
+  { value: 10, decimals: 0, suffix: "M+", tone: "bg-bold-yellow" },
 ] as const
 
 const AboutSection = () => {
-  // Giả định hook useI18n của bạn trả về `t` và `locale` (hoặc ngôn ngữ hiện tại)
-  // Nếu không có `locale`, bạn có thể truyền thẳng `t` vào dependency
+  // Re-run the stats animation when the current locale changes.
   const { t, locale } = useI18n() 
   const cardRef = useRef<HTMLDivElement>(null)
   const countRefs = useRef<Array<HTMLSpanElement | null>>([])
@@ -27,7 +26,7 @@ const AboutSection = () => {
     () => {
       if (!cardRef.current) return
 
-      // BƯỚC 1: Reset lại text hiển thị về 0 trước khi chạy hiệu ứng mới
+      // Reset visible values before starting a new animation.
       STATS.forEach((stat, index) => {
         const targetEl = countRefs.current[index]
         if (targetEl) {
@@ -35,7 +34,7 @@ const AboutSection = () => {
         }
       })
 
-      // BƯỚC 2: Khởi tạo ScrollTrigger
+      // Start the counter animation when the card enters view.
       const trigger = ScrollTrigger.create({
         trigger: cardRef.current,
         start: "top 78%",
@@ -58,13 +57,12 @@ const AboutSection = () => {
         },
       })
 
-      // BƯỚC 3: Dọn dẹp và làm mới hệ thống ScrollTrigger khi đổi ngôn ngữ
+      // Clean up and refresh ScrollTrigger when dependencies change.
       return () => {
         trigger.kill()
         ScrollTrigger.refresh()
       }
     },
-    // Truyền locale hoặc t vào đây để kích hoạt lại hook khi ngôn ngữ thay đổi
     { dependencies: [locale || t], scope: cardRef } 
   )
 
@@ -81,17 +79,17 @@ const AboutSection = () => {
               />
               <div className="absolute -bottom-2 -left-4 z-50 -rotate-10">
                 <Badge className="bg-bold-yellow px-3 py-1 font-manrope text-sm shadow-shadow sm:px-4 sm:py-1.5 sm:text-base">
-                  EST 2003
+                  EST 1995
                 </Badge>
               </div>
             </div>
             <div className="flex w-full flex-col justify-between gap-4 font-manrope xl:w-3/5">
               <div className="flex flex-col gap-2">
                 <h2 className="text-3xl font-bold uppercase sm:text-4xl">
-                  Jack Phat
+                  Arpan Roy Chowdhury
                 </h2>
                 <p className="text-base font-semibold text-gray-700 sm:text-xl">
-                  tienphat.ng693@gmail.com
+                  arcxx1995@gmail.com
                 </p>
                 <p className="text-base leading-relaxed font-medium sm:text-lg">
                   {t.about.descriptionStart}{" "}
@@ -108,9 +106,8 @@ const AboutSection = () => {
                   asChild
                 >
                   <a
-                    href="/NguyenTienPhat_CV.pdf"
+                    href="/resume.html"
                     target="_blank"
-                    download={"/NguyenTienPhat_CV.pdf"}
                     rel="noopener noreferrer"
                   >
                     {t.about.resume}
@@ -124,17 +121,17 @@ const AboutSection = () => {
               {STATS.map((stat, index) => (
                 <div
                   key={t.about.stats[index]}
-                  className={`flex aspect-square flex-col items-center justify-center border-4 border-border ${stat.tone}`}
+                  className={`flex aspect-square flex-col items-center justify-center gap-1 border-4 border-border px-2 py-3 text-center ${stat.tone}`}
                 >
                   <span
                     ref={(el) => {
                       countRefs.current[index] = el
                     }}
-                    className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl"
+                    className="font-manrope text-2xl leading-none font-bold tracking-tight sm:text-4xl lg:text-5xl"
                   >
                     {`${(0).toFixed(stat.decimals)}${stat.suffix}`}
                   </span>
-                  <p className="font-manrope text-sm font-medium sm:text-lg lg:text-xl">
+                  <p className="font-manrope text-xs leading-tight font-medium text-balance sm:text-sm lg:text-base">
                     {t.about.stats[index]}
                   </p>
                 </div>
