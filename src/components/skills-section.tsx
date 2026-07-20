@@ -90,8 +90,8 @@ const SkillsSection = () => {
               "skill-card flex flex-col gap-5 border-4 border-border p-4 shadow-shadow",
               skill.cardTone,
               index === 0 && "rotate-[-1.1deg] md:col-span-5",
-              index === 1 && "rotate-[0.9deg] md:col-span-4 md:mt-10",
-              index === 2 && "rotate-[-0.6deg] md:col-span-3 md:-mt-4"
+              index === 1 && "rotate-[0.9deg] md:col-span-4 md:translate-y-10",
+              index === 2 && "rotate-[-0.6deg] md:col-span-3 md:-translate-y-4"
             )}
           >
             <div className="flex items-center gap-3 border-b-4 border-border pb-3">

@@ -74,6 +74,7 @@ const en = {
           "Engineer REST API integrations between internal services and healthcare documentation systems, orchestrating multi-step, production-grade workflows.",
           "Design data models and serverless backend logic, and build internal tooling for onboarding, reliability, and scale.",
           "Embed directly with customers to run technical discovery and turn clinical workflows into deployed software.",
+          "Build retrieval-augmented generation (RAG) pipelines with LlamaIndex and LangChain over a pgvector vector database, grounding LLM outputs in relevant clinical context for accurate, reliable documentation.",
         ],
       },
       {
