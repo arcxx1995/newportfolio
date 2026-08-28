@@ -130,7 +130,7 @@ const en = {
   projects: {
     headingStart: "Personal",
     headingAccent: "projects",
-    count: "3 Projects",
+    count: "4 Projects",
     items: [
       {
         role: "Founder & Engineer",
@@ -154,6 +154,14 @@ const en = {
           "Building a voice-first daily tarot reading app where seekers record one question, choose card positions, and wait for a real human reader before any cards are revealed.",
           "Designed the no-auth seeker flow: in-memory recording and deck selection, Merchant of Record checkout integrated, session-token access, and sealed server-side card assignment.",
           "Architected Supabase / PostgreSQL storage, RLS, Edge Functions, MoR payment reconciliation, reader queue, Resend notification, and server-side garden state for completed readings.",
+        ],
+      },
+      {
+        role: "Founder & Engineer",
+        points: [
+          "Building an event-ticketing SaaS with three surfaces — a public app to discover events and buy tickets, an organizer console to publish events and track sales, and a codeword-gated door scanner for check-in.",
+          "Enforced oversell-safe inventory: ticket holds commit in the same PostgreSQL transaction as the availability check, with a 10-minute expiry swept by cron.",
+          "Shipped Google OAuth, Cashfree payment reconciliation, PDF ticket generation, and ZeptoMail confirmations on Next.js (App Router) deployed to Netlify.",
         ],
       },
     ],

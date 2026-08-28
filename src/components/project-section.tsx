@@ -36,6 +36,15 @@ const projects = [
     color: "hover:bg-pink-light",
     link: "",
   },
+  {
+    id: 4,
+    title: "Shindigs",
+    date: "2025 - Present",
+    tags: ["Next.js", "Supabase", "PostgreSQL", "Cashfree"],
+    website: "https://shindigs.cc",
+    color: "hover:bg-orange-light",
+    link: "https://shindigs.cc",
+  },
 ]
 
 const ProjectSection = () => {
