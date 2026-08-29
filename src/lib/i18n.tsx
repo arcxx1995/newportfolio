@@ -143,9 +143,10 @@ const en = {
       {
         role: "Founder & Engineer",
         points: [
-          "Building a real-time 1v1 competitive CAT test-prep app — head-to-head battles with live matchmaking and synchronized game state over Supabase Realtime.",
-          "Designing ELO-based matchmaking and section-level scoring, with authoritative game logic enforced server-side via PostgreSQL security-definer RPCs.",
-          "Implementing a national leaderboard, auth, and data model on Supabase / PostgreSQL; frontend in Next.js (App Router) on Vercel.",
+          "Real-time 1v1 competitive CAT test-prep app — head-to-head battles with live matchmaking and synchronized game state over Supabase Realtime.",
+          "LLM-driven at the core: a large language model generates every CAT-style question and passage on demand and adapts difficulty to each player's live performance — the match content itself is model-generated, not a fixed question bank.",
+          "LLM coaching loop: after each match the model explains every wrong answer and returns a section-level breakdown (time lost, concepts to drill), turning a head-to-head game into an adaptive study tool.",
+          "ELO-based matchmaking and scoring enforced server-side via PostgreSQL security-definer RPCs; national leaderboard, auth, and data model on Supabase; Next.js (App Router) on Vercel.",
         ],
       },
       {
@@ -159,9 +160,10 @@ const en = {
       {
         role: "Founder & Engineer",
         points: [
-          "Building an event-ticketing SaaS with three surfaces — a public app to discover events and buy tickets, an organizer console to publish events and track sales, and a codeword-gated door scanner for check-in.",
-          "Enforced oversell-safe inventory: ticket holds commit in the same PostgreSQL transaction as the availability check, with a 10-minute expiry swept by cron.",
-          "Shipped Google OAuth, Cashfree payment reconciliation, PDF ticket generation, and ZeptoMail confirmations on Next.js (App Router) deployed to Netlify.",
+          "Three surfaces: a public discovery + checkout app, an organizer console (publish events, track sales), and a codeword-gated door scanner for check-in.",
+          "AI discovery: a conversational LLM assistant (\"Elf AI\"), powered by GLM-5.2 via OpenRouter, replaces search and is the landing hero — plain-language queries return event recommendations and set the grid's filters in one turn.",
+          "LLM grounding: it chooses only from a per-request numbered catalogue of published events and answers with line numbers; a pure server-side function drops hallucinated or out-of-range picks. No vector store, no cached index.",
+          "Commerce + infra: single-transaction PostgreSQL ticket holds (oversell-safe), Google OAuth, Cashfree payments, PDF tickets, ZeptoMail confirmations — Next.js (App Router) on Netlify.",
         ],
       },
     ],
