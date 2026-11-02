@@ -11,9 +11,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 const STATS = [
   { value: 6, decimals: 0, suffix: "+", tone: "bg-soft-orange" },
-  { value: 5, decimals: 0, suffix: "+", tone: "bg-coral-pink" },
+  { value: 4, decimals: 0, suffix: "", tone: "bg-coral-pink" },
   { value: 4, decimals: 0, suffix: "+", tone: "bg-soft-green" },
-  { value: 10, decimals: 0, suffix: "M+", tone: "bg-bold-yellow" },
+  { value: 100, decimals: 0, suffix: "+", tone: "bg-bold-yellow" },
 ] as const
 
 const AboutSection = () => {

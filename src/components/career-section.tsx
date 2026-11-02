@@ -28,16 +28,10 @@ const careerItems = [
     variant: "circle",
   },
   {
-    company: "DAPPRADAR",
+    company: "HILTI ASIA PACIFIC",
     cardClassName: "rotate-1",
     markerClassName: "bg-sky-blue",
     variant: "square",
-  },
-  {
-    company: "HAKUNA",
-    cardClassName: "-rotate-2",
-    markerClassName: "bg-coral-pink",
-    variant: "rhombus",
   },
   {
     company: "ET MEDIA LABS",

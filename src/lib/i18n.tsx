@@ -67,49 +67,37 @@ const en = {
     subtitle: "Six Years of Shipping Production Software",
     items: [
       {
-        period: "Mar 2026 - Present",
+        period: "Mar 2026 - Aug 2026",
         role: "Forward Deployed Engineer",
         description: [
-          "Build and ship AI-native clinical documentation workflows end-to-end — transcription pipelines, LLM-driven structured note generation (SOAP / DAP / BIRP), and the frontend practitioners use daily — in a HIPAA-conscious environment.",
-          "Engineer REST API integrations between internal services and healthcare documentation systems, orchestrating multi-step, production-grade workflows.",
-          "Design data models and serverless backend logic, and build internal tooling for onboarding, reliability, and scale.",
-          "Embed directly with customers to run technical discovery and turn clinical workflows into deployed software.",
-          "Build retrieval-augmented generation (RAG) pipelines with LlamaIndex and LangChain over a pgvector vector database, grounding LLM outputs in relevant clinical context for accurate, reliable documentation.",
+          "Built transcription and processing pipelines and LLM-driven structured note generation (SOAP, DAP, BIRP) on Python backend services and serverless functions.",
+          "Built RAG pipelines over pgvector with LlamaIndex and LangChain, and used LangSmith to trace and evaluate agent behavior in production.",
+          "Ran technical discovery with customers, built REST integrations with their external systems, and tested with pytest in a HIPAA-conscious environment.",
         ],
       },
       {
         period: "Dec 2024 - Mar 2026",
         role: "Software Engineer",
         description: [
-          "Developed full-stack features for an enterprise AI safety platform — backend APIs for real-time monitoring and risk detection, plus dashboards visualizing computer-vision and IoT data streams.",
-          "Built data pipelines processing real-time streams from edge devices and CV models; designed APIs and webhooks connecting edge processing, IoT, and cloud services.",
-          "Containerized services with Docker and deployed across cloud environments for enterprise reliability and scale.",
+          "Built Python pipelines that ingest real-time streams from edge devices and computer-vision models, with PostGIS for geospatial data.",
+          "Exposed the data through REST APIs (Flask, FastAPI) and webhooks for customer integrations, and built proofs of concept and demos for prospective customers.",
+          "Provisioned AWS infrastructure (EC2, RDS, CloudFront) with Terraform, deployed services in Docker, and diagnosed production issues across code, pipelines, and infrastructure.",
         ],
       },
       {
-        period: "Jul 2023 - Dec 2024",
+        period: "Jul 2022 - Dec 2024",
         role: "SDE II",
         description: [
-          "Built and maintained backend services and APIs (Node.js / PHP) powering DappRadar's Web3 analytics — indexing on-chain data across multiple blockchains for 1M+ users.",
-          "Developed high-throughput pipelines ingesting and normalizing real-time blockchain data, exposed through performant REST APIs and dashboards.",
-          "Worked across the stack on data accuracy, reliability, and scale for multi-chain analytics.",
+          "Built backend services and APIs that manage customer entitlements, subscriptions, and commercial state, with a focus on API design and data modeling.",
+          "Contributed to systems that automate order intake, validation, and fulfillment across channels. Joined design reviews and the on-call rotation for critical issues.",
         ],
       },
       {
-        period: "Jan 2021 - Jul 2023",
-        role: "Application Developer",
-        description: [
-          "Developed full-stack and native iOS features (Swift, Xcode) for a real-time live-streaming social platform with 10M+ downloads.",
-          "Worked with WebRTC for low-latency HD live broadcasts and multi-guest video rooms across web and iOS.",
-          "Built engagement, in-app gifting, virtual currency, and content discovery features.",
-        ],
-      },
-      {
-        period: "Mar 2020 - Nov 2020",
+        period: "Mar 2020 - Jul 2022",
         role: "Executive Systems Engineer",
         description: [
-          "Built systems and automation for multi-channel data acquisition and analytics across digital growth platforms.",
-          "Developed reporting tooling integrating Google Analytics, Looker Studio, and platform APIs; automated data and experimentation pipelines.",
+          "Built backend systems and automation for multi-channel data acquisition, integrating platform APIs.",
+          "Built reporting and analytics tooling that integrated Google Analytics, Looker Studio, and platform APIs.",
         ],
       },
     ],
