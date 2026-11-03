@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const careerItems = [
   {
-    company: "MENTALYC INC",
+    company: "KYNDRYL",
     cardClassName: "-rotate-1",
     markerClassName: "bg-bold-yellow",
     variant: "square",
