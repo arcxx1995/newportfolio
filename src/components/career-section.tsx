@@ -16,14 +16,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 const careerItems = [
   {
-    company: "KYNDRYL",
-    cardClassName: "-rotate-1",
-    markerClassName: "bg-bold-yellow",
-    variant: "square",
-  },
-  {
     company: "VIACT.AI",
-    cardClassName: "rotate-1",
+    cardClassName: "-rotate-1",
     markerClassName: "bg-soft-green",
     variant: "circle",
   },

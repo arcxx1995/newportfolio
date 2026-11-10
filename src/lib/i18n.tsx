@@ -67,16 +67,7 @@ const en = {
     subtitle: "Six Years of Shipping Production Software",
     items: [
       {
-        period: "Mar 2026 - Aug 2026",
-        role: "Forward Deployed Engineer",
-        description: [
-          "Built transcription and processing pipelines and LLM-driven structured note generation (SOAP, DAP, BIRP) on Python backend services and serverless functions.",
-          "Built RAG pipelines over pgvector with LlamaIndex and LangChain, and used LangSmith to trace and evaluate agent behavior in production.",
-          "Ran technical discovery with customers, built REST integrations with their external systems, and tested with pytest in a HIPAA-conscious environment.",
-        ],
-      },
-      {
-        period: "Dec 2024 - Mar 2026",
+        period: "Dec 2024 - Aug 2026",
         role: "Software Engineer",
         description: [
           "Built Python pipelines that ingest real-time streams from edge devices and computer-vision models, with PostGIS for geospatial data.",
